@@ -17,7 +17,7 @@ class VkResponseParser {
     private init(){}
     
     
-    func parseFriends(result: AFResult<Any>) -> [VkFriend] {
+    func parseFriends(result: Result<Any>) -> [VkFriend] {
         var friends = [VkFriend]()
         
         var firstnameArr = [String]()
@@ -67,7 +67,7 @@ class VkResponseParser {
         }
         
         if friends.count > 0 {
-            RealmWorker.instance.saveItems(items: friends, needMigrate: true)//saveFriends(friends)
+            RealmWorker.instance.saveItems(items: friends, needMigrate: true)
         } else {
             friends = RealmWorker.instance.getMyFriends()//getItems(VkFriend.self)
         }
@@ -75,7 +75,7 @@ class VkResponseParser {
         return friends
     }
     
-    func parseGroups(result: AFResult<Any>, isSearched: Bool) -> [VkGroup] {
+    func parseGroups(result: Result<Any>, isSearched: Bool) -> [VkGroup] {
         var groups = [VkGroup]()
         
         switch result {
@@ -119,7 +119,7 @@ class VkResponseParser {
 
     }
     
-    func parseJoinLeaveGroup(result: AFResult<Any>) -> Bool {
+    func parseJoinLeaveGroup(result: Result<Any>) -> Bool {
         
         switch result {
         case .success(let value):
@@ -136,7 +136,7 @@ class VkResponseParser {
         return false
     }
     
-    func parsePhotos(result: AFResult<Any>) -> [VkPhoto] {
+    func parsePhotos(result: Result<Any>) -> [VkPhoto] {
         var photos = [VkPhoto]()
         
         switch result {
@@ -157,11 +157,11 @@ class VkResponseParser {
                         photo.text = response["text"].stringValue
                         
                         photo.likes = VkLikes()
-                        photo.likes?.count = response["likes"]["count"].intValue
-                        photo.likes?.user_likes = response["likes"]["user_likes"].intValue
+                        photo.likes.count = response["likes"]["count"].intValue
+                        photo.likes.user_likes = response["likes"]["user_likes"].intValue
                         
                         photo.reposts = VkReposts()
-                        photo.reposts?.count = response["reposts"]["count"].intValue
+                        photo.reposts.count = response["reposts"]["count"].intValue
                         photos.append(photo)
                     } else {
                         print("is not Response")
@@ -181,7 +181,7 @@ class VkResponseParser {
     }
 
     
-    func parseNews(result: AFResult<Any>) -> [VkFeed] {
+    func parseNews(result: Result<Any>) -> [VkFeed] {
         let nextFromNotification = Notification.Name("nextFromNotification")
         var feeds = [VkFeed]()
         var feedGroups = [VkGroup]()
@@ -279,7 +279,7 @@ class VkResponseParser {
     }
     
     
-    func parseComments(result: AFResult<Any>) -> [VkComment] {
+    func parseComments(result: Result<Any>) -> [VkComment] {
 
         var comments = [VkComment]()
         var commentProfiles = [VkCommentProfile]()

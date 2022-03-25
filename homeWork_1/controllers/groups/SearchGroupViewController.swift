@@ -166,7 +166,7 @@ extension SearchGroupViewController: VkApiGroupsDelegate {
             let realm = try Realm()
             realm.beginWrite()
             group.is_member = is_member
-            realm.add(group, update: .all)
+            realm.add(group, update: true)
             try realm.commitWrite()
             groups.remove(at: index)
             groups.insert(group, at: index)

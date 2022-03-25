@@ -11,14 +11,14 @@ import RealmSwift
 
 class VkFriend: Object {//, Codable : Object
     
-    @Persisted var uid = 0
-    @Persisted var online = 0
-    @Persisted var user_id = 0
-    @Persisted var nickname = ""
-    @Persisted var last_name = ""
-    @Persisted var first_name = ""
-    @Persisted var full_name = ""
-    @Persisted var photo = ""
+    @objc dynamic var uid = 0
+    @objc dynamic var online = 0
+    @objc dynamic var user_id = 0
+    @objc dynamic var nickname = ""
+    @objc dynamic var last_name = ""
+    @objc dynamic var first_name = ""
+    @objc dynamic var full_name = ""
+    @objc dynamic var photo = ""
     
     
     override static func primaryKey() -> String? {
@@ -33,11 +33,15 @@ class VkFriend: Object {//, Codable : Object
     func generateFullName() {
         self.full_name = (first_name.count > 0 ? (first_name + " ") : "") + (last_name.count > 0 ? last_name : "")
     }
-    
-    
+}
 
-
-
-
-    
+struct VKFriend {
+    let uid: Int
+    let online: Int
+    let user_id: Int
+    let nickname: String?
+    let last_name: String
+    let first_name: String
+    let full_name: String?
+    let photo: String?
 }

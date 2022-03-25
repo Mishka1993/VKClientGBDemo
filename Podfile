@@ -7,14 +7,16 @@ target 'homeWork_1' do
 
   # Pods for homeWork_1
 	
-	pod 'IQKeyboardManagerSwift', '= 6.5.9'
-	pod 'Alamofire', '= 5.5.0'
-	pod 'RealmSwift', '= 10.20.1'
-	pod 'PinLayout', '= 1.10.0'
-	pod 'SwiftyJSON', '= 4.3.0'
-	pod 'SDWebImage', '= 4.4.8'
-	pod 'Firebase/Core', '= 8.10.0'
-  	pod 'Firebase/Database', '= 8.10.0'
+	pod 'IQKeyboardManagerSwift'
+	pod 'Alamofire'
+	pod 'RealmSwift'
+	pod 'PinLayout'
+	pod 'SwiftyJSON', '~> 4.0'
+	pod 'SDWebImage', '~> 4.0'
+	pod 'Firebase/Core'
+  	pod 'Firebase/Database'
+#  	pod 'Firebase/Auth'
+#  	pod 'Firebase/Firestore'
 
 
 
