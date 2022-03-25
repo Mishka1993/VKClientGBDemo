@@ -43,7 +43,6 @@ protocol VkApiCommentsDelegate {
 class AlamofireService {
     
     static let instance = AlamofireService()
-    private init(){}
     
     
     // //Друзья

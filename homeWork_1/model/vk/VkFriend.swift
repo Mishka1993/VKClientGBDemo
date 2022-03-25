@@ -33,11 +33,15 @@ class VkFriend: Object {//, Codable : Object
     func generateFullName() {
         self.full_name = (first_name.count > 0 ? (first_name + " ") : "") + (last_name.count > 0 ? last_name : "")
     }
-    
-    
+}
 
-
-
-
-    
+struct VKFriend {
+    let uid: Int
+    let online: Int
+    let user_id: Int
+    let nickname: String?
+    let last_name: String
+    let first_name: String
+    let full_name: String?
+    let photo: String?
 }

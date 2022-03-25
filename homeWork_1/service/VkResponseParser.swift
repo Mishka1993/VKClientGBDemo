@@ -67,7 +67,7 @@ class VkResponseParser {
         }
         
         if friends.count > 0 {
-            RealmWorker.instance.saveItems(items: friends, needMigrate: true)//saveFriends(friends)
+            RealmWorker.instance.saveItems(items: friends, needMigrate: true)
         } else {
             friends = RealmWorker.instance.getMyFriends()//getItems(VkFriend.self)
         }
