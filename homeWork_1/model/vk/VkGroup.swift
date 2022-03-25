@@ -11,16 +11,16 @@ import RealmSwift
 
 class VkGroup: Object {
     
-    @Persisted var gid = 0
-    @Persisted var is_admin = 0
-    @Persisted var is_closed = 0
-    @Persisted var is_member = 0
-    @Persisted var name = ""
-    @Persisted var type = ""
-    @Persisted var photo = ""
-    @Persisted var photoBig = ""
-    @Persisted var screenName = ""
-    @Persisted var photoMedium = ""
+    @objc dynamic var gid = 0
+    @objc dynamic var is_admin = 0
+    @objc dynamic var is_closed = 0
+    @objc dynamic var is_member = 0
+    @objc dynamic var name = ""
+    @objc dynamic var type = ""
+    @objc dynamic var photo = ""
+    @objc dynamic var photoBig = ""
+    @objc dynamic var screenName = ""
+    @objc dynamic var photoMedium = ""
     
     override static func primaryKey() -> String? {
         return "gid"

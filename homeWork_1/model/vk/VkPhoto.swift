@@ -11,17 +11,17 @@ import RealmSwift
 
 class VkPhoto: Object {
     
-    @Persisted var aid = 0
-    @Persisted var pid = 0
-    @Persisted var width = 0
-    @Persisted var height = 0
-    @Persisted var created = 0
-    @Persisted var ownerId = 0
-    @Persisted var text = ""
-    @Persisted var photo = ""
-    @Persisted var photoBig = ""
-    @Persisted var likes: VkLikes? //LinkingObjects(fromType: VkLikes.self, property: "likes")//
-    @Persisted var reposts: VkReposts? //LinkingObjects(fromType: VkReposts.self, property: "reposts")
+    @objc dynamic var aid = 0
+    @objc dynamic var pid = 0
+    @objc dynamic var width = 0
+    @objc dynamic var height = 0
+    @objc dynamic var created = 0
+    @objc dynamic var ownerId = 0
+    @objc dynamic var text = ""
+    @objc dynamic var photo = ""
+    @objc dynamic var photoBig = ""
+    var likes = VkLikes()//LinkingObjects(fromType: VkLikes.self, property: "likes")//
+    var reposts = VkReposts()//LinkingObjects(fromType: VkReposts.self, property: "reposts")
     
     
     override static func primaryKey() -> String? {
@@ -34,11 +34,11 @@ class VkPhoto: Object {
     
     
     public func likeCount() -> Int {
-        return likes?.count ?? 0
+        return likes.count
     }
     
     public func repostCount() -> Int {
-        return reposts?.count ?? 0
+        return reposts.count
     }
     
     
@@ -49,11 +49,11 @@ class VkPhoto: Object {
 
 class VkLikes: Object {
 
-    @Persisted var count: Int = 0
-    @Persisted var user_likes: Int = 0
+    @objc dynamic var count: Int = 0
+    @objc dynamic var user_likes: Int = 0
 }
 
 class VkReposts: Object {
 
-    @Persisted var count: Int = 0
+    @objc dynamic var count: Int = 0
 }

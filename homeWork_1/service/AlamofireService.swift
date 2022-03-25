@@ -56,7 +56,7 @@ class AlamofireService {
             "v": "3.0",
             ]
         
-        AF.request(fullRow, method: .get, parameters: params)
+        Alamofire.request(fullRow, method: .get, parameters: params)
             .responseJSON(queue: DispatchQueue.global(qos: .userInteractive)) { response in
                 let friends = VkResponseParser.instance
                     .parseFriends(result: response.result)
@@ -81,7 +81,7 @@ class AlamofireService {
             "count":"100"
         ]
         
-        AF.request(fullRow, method: .get, parameters: params)
+        Alamofire.request(fullRow, method: .get, parameters: params)
             .responseJSON(queue: DispatchQueue.global(qos: .userInteractive)) { response in
                 let groups = VkResponseParser.instance
                     .parseGroups(result: response.result, isSearched: false)
@@ -101,7 +101,7 @@ class AlamofireService {
             "v": "3.0"
         ]
         
-        AF.request(fullRow, method: .get, parameters: params)
+        Alamofire.request(fullRow, method: .get, parameters: params)
             .responseJSON(queue: DispatchQueue.global(qos: .userInteractive)){ response in
                 let parseValid = VkResponseParser.instance
                     .parseJoinLeaveGroup(result: response.result)
@@ -121,7 +121,7 @@ class AlamofireService {
             "v": "3.0"
         ]
         
-        AF.request(fullRow, method: .get, parameters: params)
+        Alamofire.request(fullRow, method: .get, parameters: params)
             .responseJSON(queue: DispatchQueue.global(qos: .userInteractive)) { response in
                 let parseValid = VkResponseParser.instance
                     .parseJoinLeaveGroup(result: response.result)
@@ -143,7 +143,7 @@ class AlamofireService {
             "sort": "2",
             "v": "3.0"
         ]
-        AF.request(fullRow, method: .get, parameters: params)
+        Alamofire.request(fullRow, method: .get, parameters: params)
             .responseJSON(queue: DispatchQueue.global(qos: .userInteractive)) { response in
                 let groups = VkResponseParser.instance
                     .parseGroups(result: response.result, isSearched: true)
@@ -165,7 +165,7 @@ class AlamofireService {
             "count":"100"
         ]
         
-        AF.request(fullRow, method: .get, parameters: params)
+        Alamofire.request(fullRow, method: .get, parameters: params)
             .responseJSON(queue: DispatchQueue.global(qos: .userInteractive)) { response in
                 let photos = VkResponseParser.instance
                     .parsePhotos(result: response.result)
@@ -188,7 +188,7 @@ class AlamofireService {
             //            "album_id":"saved"
         ]
         
-        AF.request(fullRow, method: .get, parameters: params)
+        Alamofire.request(fullRow, method: .get, parameters: params)
             .responseJSON(queue: DispatchQueue.global(qos: .userInteractive)) { response in
                 let photos = VkResponseParser.instance
                     .parsePhotos(result: response.result)
@@ -211,7 +211,7 @@ class AlamofireService {
             //            "end_time":"\(1)"
         ]
         
-        AF.request(fullRow, method: .get, parameters: params)
+        Alamofire.request(fullRow, method: .get, parameters: params)
             .responseJSON(queue: DispatchQueue.global(qos: .userInteractive)) { response in
                 let feeds = VkResponseParser.instance.parseNews(result: response.result)
                 DispatchQueue.main.async {
@@ -237,7 +237,7 @@ class AlamofireService {
             "post_id":"\(postId)"
         ]
         
-        AF.request(fullRow, method: .get, parameters: params)
+        Alamofire.request(fullRow, method: .get, parameters: params)
             .responseJSON(queue: DispatchQueue.global(qos: .userInteractive)) { response in
                 print(response.result)
                 let comments = VkResponseParser.instance
